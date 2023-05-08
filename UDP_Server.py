@@ -17,7 +17,7 @@ DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 #Bind to the UPD Socket
-sock = socket.socket(socket.AF_INET, socket.socket.SOCK_DGRAM)
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((IP, PORT))
 
 #Something to tell us its alive

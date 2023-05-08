@@ -5,20 +5,16 @@ import psycopg2
 # set up UDP socket
 UDP_IP = '0.0.0.0'
 UDP_PORT = os.environ.get('PORT',5000)
-DB_HOST = os.environ.get('DB_HOST')
-DB_PORT = os.environ.get('DB_PORT')
-DB_NAME = os.environ.get('DB_NAME')
-DB_USER = os.environ.get('DB_USER')
-DB_PASSWORD = os.environ.get('DB_PASSWORD')
+#DB_HOST = os.environ.get('DB_HOST')
+#DB_PORT = os.environ.get('DB_PORT')
+#DB_NAME = os.environ.get('DB_NAME')
+#DB_USER = os.environ.get('DB_USER')
+#DB_PASSWORD = os.environ.get('DB_PASSWORD')
+DATABASE_URL = os.environ['DATABASE_URL']
+
 
 # connect to PostgreSQL database
-conn = psycopg2.connect(
-    host=DB_HOST,
-    port=DB_PORT,
-    dbname=DB_NAME,
-    user=DB_USER,
-    password=DB_PASSWORD
-)
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 #Bind to the UPD Socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

@@ -4,9 +4,9 @@ import psycopg2
 
 # set up UDP socket
 UDP_IP = '0.0.0.0'
-UDP_PORT = int(os.environ.get('PORT',5000))
+UDP_PORT = os.environ.get('PORT',5000)
 DB_HOST = os.environ.get('DB_HOST')
-DB_PORT = int(os.environ.get('DB_PORT'))
+DB_PORT = os.environ.get('DB_PORT')
 DB_NAME = os.environ.get('DB_NAME')
 DB_USER = os.environ.get('DB_USER')
 DB_PASSWORD = os.environ.get('DB_PASSWORD')

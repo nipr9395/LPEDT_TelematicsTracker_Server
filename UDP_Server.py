@@ -3,8 +3,7 @@ import socket
 import psycopg2
 
 # set up UDP socket
-UDP_IP = '0.0.0.0'
-UDP_PORT = os.environ.get('PORT',5000)
+UDP_PORT =5000#os.environ.get('PORT',5000)
 #DB_HOST = os.environ.get('DB_HOST')
 #DB_PORT = os.environ.get('DB_PORT')
 #DB_NAME = os.environ.get('DB_NAME')
@@ -18,7 +17,7 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 #Bind to the UPD Socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.bind((UDP_IP, UDP_PORT))
+sock.bind(("0.0.0.0", UDP_PORT))
 
 # listen for incoming packets and insert data into database
 while True:

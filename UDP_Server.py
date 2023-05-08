@@ -19,6 +19,9 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind(("0.0.0.0", UDP_PORT))
 
+#Something to tell us its alive
+print("Hello world")
+
 # listen for incoming packets and insert data into database
 while True:
     data, addr = sock.recvfrom(1024)
